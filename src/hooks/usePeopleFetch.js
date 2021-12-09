@@ -10,6 +10,7 @@ export const usePeopleFetch = () => {
   const changePageNumber = () => { setPageNum(pageNum + 1); };
 
   useEffect(() => { fetchUsers(); }, [pageNum]);
+  useEffect(() => { fetchUsers(); }, []);
 
   async function fetchUsers() {
     setIsLoading(true);
