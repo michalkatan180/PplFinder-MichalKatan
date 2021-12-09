@@ -13,8 +13,8 @@ const UserList = ({ users, isLoading, changePageNumber }) => {
   const handleMouseLeave = () => { setHoveredUserId(); };
 
   const [usersArray, setUsersArray] = useState(users);//The people who will see them
-  const [filters, setFilters] = useState(null);//The countries that the people from these countries, we will represent
-  const [favorites, setFavorites] = useState(null)//The favorite people, to have a pink heart
+  const [filters, setFilters] = useState([]);//The countries that the people from these countries, we will represent
+  const [favorites, setFavorites] = useState([])//The favorite people, to have a pink heart
 
 
   useEffect(() => {
@@ -82,7 +82,7 @@ const UserList = ({ users, isLoading, changePageNumber }) => {
                 </Text>
               </S.UserInfo>
               <S.IconButtonWrapper
-                isVisible={favorites && favorites.findIndex(i => i.login.uuid === user.login.uuid) > -1 || index === hoveredUserId}
+                isVisible={favorites && favorites.length && favorites.findIndex(i => i.login.uuid === user.login.uuid) > -1 || index === hoveredUserId}
                 onClick={() => {
                   let arr = JSON.parse(localStorage.getItem("favorites"));
                   let ind = arr.findIndex(i => i.login.uuid === user.login.uuid);
@@ -92,7 +92,7 @@ const UserList = ({ users, isLoading, changePageNumber }) => {
                   setFavorites(arr);
                 }}>
                 <IconButton>
-                  <FavoriteIcon color={favorites && favorites.findIndex(i => i.login.uuid === user.login.uuid) === -1 ? '' : 'error'} />
+                  <FavoriteIcon color={favorites && favorites.length && favorites.findIndex(i => i.login.uuid === user.login.uuid) === -1 ? '' : 'error'} />
                 </IconButton>
               </S.IconButtonWrapper>
             </S.User>
