@@ -82,18 +82,17 @@ const UserList = ({ users, isLoading, changePageNumber }) => {
                 </Text>
               </S.UserInfo>
               <S.IconButtonWrapper
-                isVisible={favorites && favorites.findIndex(f => f === user.login.uuid) > -1 || index === hoveredUserId}
+                isVisible={favorites && favorites.findIndex(i => i.login.uuid === user.login.uuid) > -1 || index === hoveredUserId}
                 onClick={() => {
                   let arr = JSON.parse(localStorage.getItem("favorites"));
-                  let ind = arr.indexOf(user.login.uuid);
-                  if (ind == -1) arr.push(user.login.uuid)
+                  let ind = arr.findIndex(i => i.login.uuid === user.login.uuid);
+                  if (ind == -1) arr.push(user)
                   else arr.splice(ind, 1);
                   localStorage.setItem("favorites", JSON.stringify(arr));
                   setFavorites(arr);
-
                 }}>
                 <IconButton>
-                  <FavoriteIcon color={favorites && favorites.findIndex(f => f === user.login.uuid) === -1 ? '' : 'error'} />
+                  <FavoriteIcon color={favorites && favorites.findIndex(i => i.login.uuid === user.login.uuid) === -1 ? '' : 'error'} />
                 </IconButton>
               </S.IconButtonWrapper>
             </S.User>
@@ -105,6 +104,7 @@ const UserList = ({ users, isLoading, changePageNumber }) => {
             <Spinner color="primary" size="45px" thickness={6} variant="indeterminate" />
           </S.SpinnerWrapper>
         )}
+
       </S.List>
 
 
