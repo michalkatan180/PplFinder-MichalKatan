@@ -12,7 +12,7 @@ const UserList = ({ users, isLoading, changePageNumber }) => {
   const [hoveredUserId, setHoveredUserId] = useState();
   const handleMouseLeave = () => { setHoveredUserId(); };
 
-  const [usersArray, setUsersArray] = useState(null);//The people who will see them
+  const [usersArray, setUsersArray] = useState(users);//The people who will see them
   const [filters, setFilters] = useState([]);//The countries that the people from these countries, we will represent
   const [favorites, setFavorites] = useState([])//The favorite people, to have a pink heart
 
