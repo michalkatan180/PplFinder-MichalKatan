@@ -19,11 +19,10 @@ const FavoriteUsers = ({ users, isLoading }) => {
             <S.Header><Text size="36px" bold>Favorite Users</Text></S.Header>
             <S.UserList>
                 <S.List>
-                    {users && users.map((user, index) => {
-                        if (favorites && favorites.findIndex(f => f === user.login.uuid) > -1)
+                    {favorites && favorites.map((user, index) => {
                             return (
                                 <S.User key={index}>
-                                    <S.UserPicture src={user?.picture.large} alt="" />
+                                    {/* <S.UserPicture src={user?.picture.large} alt="" /> */}
                                     <S.UserInfo>
                                         <Text size="22px" bold>
                                             {user?.name.title} {user?.name.first} {user?.name.last}
