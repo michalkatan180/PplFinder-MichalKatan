@@ -50,7 +50,7 @@ const FavoriteUsers = ({ users, isLoading }) => {
                                 //         </IconButton>
                                 //     </S.IconButtonWrapper>
                                 // </S.User>
-                                {user.login.uuid}
+                                {user}
                             // );
                     })}
                     {isLoading && (
