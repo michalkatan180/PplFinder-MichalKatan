@@ -20,37 +20,38 @@ const FavoriteUsers = ({ users, isLoading }) => {
             <S.UserList>
                 <S.List>
                     {favorites && favorites.map((user, index) => {
-                            return (
-                                <S.User key={index}>
-                                    {/* <S.UserPicture src={user?.picture.large} alt="" /> */}
-                                    <S.UserInfo>
-                                        <Text size="22px" bold>
-                                            {user?.name.title} {user?.name.first} {user?.name.last}
-                                        </Text>
-                                        <Text size="14px">{user?.email}</Text>
-                                        <Text size="14px">
-                                            {user?.location.street.number} {user?.location.street.name}
-                                        </Text>
-                                        <Text size="14px">
-                                            {user?.location.city} {user?.location.country}
-                                        </Text>
-                                    </S.UserInfo>
-                                    <S.IconButtonWrapper
-                                        isVisible={true}
-                                        onClick={() => {
-                                            let arr = JSON.parse(localStorage.getItem("favorites"));
-                                            let ind = arr.indexOf(user.login.uuid);
-                                            if (ind == -1) arr.push(user.login.uuid)
-                                            else arr.splice(ind, 1);
-                                            localStorage.setItem("favorites", JSON.stringify(arr));
-                                            setFavorites(arr);
-                                        }}>
-                                        <IconButton>
-                                            <FavoriteIcon color='error' />
-                                        </IconButton>
-                                    </S.IconButtonWrapper>
-                                </S.User>
-                            );
+                            // return (
+                                // <S.User key={index}>
+                                //     <S.UserPicture src={user?.picture.large} alt="" />
+                                //     <S.UserInfo>
+                                //         <Text size="22px" bold>
+                                //             {user?.name.title} {user?.name.first} {user?.name.last}
+                                //         </Text>
+                                //         <Text size="14px">{user?.email}</Text>
+                                //         <Text size="14px">
+                                //             {user?.location.street.number} {user?.location.street.name}
+                                //         </Text>
+                                //         <Text size="14px">
+                                //             {user?.location.city} {user?.location.country}
+                                //         </Text>
+                                //     </S.UserInfo>
+                                //     <S.IconButtonWrapper
+                                //         isVisible={true}
+                                //         onClick={() => {
+                                //             let arr = JSON.parse(localStorage.getItem("favorites"));
+                                //             let ind = arr.indexOf(user.login.uuid);
+                                //             if (ind == -1) arr.push(user.login.uuid)
+                                //             else arr.splice(ind, 1);
+                                //             localStorage.setItem("favorites", JSON.stringify(arr));
+                                //             setFavorites(arr);
+                                //         }}>
+                                //         <IconButton>
+                                //             <FavoriteIcon color='error' />
+                                //         </IconButton>
+                                //     </S.IconButtonWrapper>
+                                // </S.User>
+                                {user.login.uuid}
+                            // );
                     })}
                     {isLoading && (
                         <S.SpinnerWrapper>
