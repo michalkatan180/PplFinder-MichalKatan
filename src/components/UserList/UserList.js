@@ -68,7 +68,7 @@ const UserList = ({ users, isLoading, changePageNumber }) => {
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={handleMouseLeave}
             >
-              {/* <S.UserPicture src={user?.picture.large} alt="" /> */}
+              <S.UserPicture src={user?.picture.large} alt="" />
               <S.UserInfo>
                 <Text size="22px" bold>
                   {user?.name.title} {user?.name.first} {user?.name.last}

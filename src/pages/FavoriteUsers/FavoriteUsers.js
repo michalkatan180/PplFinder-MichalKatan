@@ -22,7 +22,7 @@ const FavoriteUsers = ({ users }) => {
                     {favorites && favorites.map((user, index) => {
                         return (
                             <S.User key={index}>
-                                {/* <S.UserPicture src={user?.picture.large} alt="" /> */}
+                                <S.UserPicture src={user?.picture.large} alt="" />
                                 <S.UserInfo>
                                     <Text size="22px" bold>
                                         {user?.name.title} {user?.name.first} {user?.name.last}
